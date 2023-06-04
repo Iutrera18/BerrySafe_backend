@@ -12,6 +12,13 @@ router.get('/img/:id', async (ctx) => {
 
 router.get('/savedimgs', async (ctx) => {
   // Codigo para mostrar todas las fotos
+  try {
+    ctx.body = "Bien";
+    ctx.status = 201;
+  } catch (error) {
+    ctx.body = error;
+    ctx.status = 400;
+  }
 })
 
 router.delete('/delete/:id', async (ctx) => {
