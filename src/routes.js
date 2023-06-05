@@ -47,7 +47,7 @@ router.get('/savedimgs', async (ctx) => {
 router.delete('/delete/:link', async (ctx) => {
   // Codigo para borrar imagen de BDD
   try {
-    const imageToDelete = await ctx.orm.Image.findOne({where: {url: ctx.params.link}});
+    const imageToDelete = await ctx.orm.Image.findByPk(ctx.params.link);
     if (imageToDelete) {
       imageToDelete.destroy();
       ctx.body = "Imagen eliminada exitosamente";
