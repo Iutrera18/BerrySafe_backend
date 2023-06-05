@@ -4,14 +4,15 @@ const { koaBody } = require('koa-body');
 const dotenv = require('dotenv');
 const router = require('./routes');
 const orm = require('./models');
-// const cors = require('koa2-cors');
+const cors = require('koa2-cors');
 
 dotenv.config();
 
+const corsOptions = { origin: "*", credentials: true };
 const app = new Koa();
 
 app.context.orm = orm;
-
+app.use(cors(corsOptions));
 app.use(KoaLogger());
 app.use(koaBody());
 
