@@ -9,6 +9,7 @@ router.post('/uploadimg', async (ctx) => {
     ctx.body = newImage;
     ctx.status = 201;
   } catch (error) {
+    console.log(error);
     ctx.status = 400;
     ctx.body = error;
   }
