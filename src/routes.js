@@ -5,7 +5,7 @@ const router = new Router();
 router.post('/uploadimg', async (ctx) => {
   // Codigo para subir una foto a BDD
   try {
-    const newImage = await ctx.orm.image.create(ctx.request.body);
+    const newImage = await ctx.orm.Image.create(ctx.request.body);
     ctx.body = newImage;
     ctx.status = 201;
   } catch (error) {
